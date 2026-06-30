@@ -72,7 +72,6 @@ ax.title.set_color('white')
 ax.legend(facecolor='black', labelcolor='white', fontsize=8)
 ax.grid(True, color='gray', alpha=0.3)
 plt.tight_layout()
+plt.savefig('filter_validation.png', dpi=150)
 plt.show()
-
-plt.savefig('filter_validation.png', facecolor='black', bbox_inches='tight', dpi=150)
 print("Plot saved to filter_validation.png")
