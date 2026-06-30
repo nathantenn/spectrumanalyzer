@@ -14,6 +14,14 @@ Speak, whistle, or play music near your microphone and watch the frequency spect
 
 ---
 
+## Filter Validation
+
+Experimentally validated each Butterworth filter's frequency response by sweeping sine waves across the audio spectrum and comparing measured attenuation against theoretical Bode plots. Measured and theoretical responses match to within 1dB across the full frequency range.
+
+![Filter Validation](filter_validation.png)
+
+---
+
 ## DSP Concepts Demonstrated
 
 - **Fast Fourier Transform (FFT)** — converts time-domain audio samples into the frequency domain, revealing how much energy exists at each frequency
@@ -25,11 +33,6 @@ Speak, whistle, or play music near your microphone and watch the frequency spect
 ---
 
 ## How It Works
-
-```
-Microphone → raw audio samples → Hanning window → FFT → frequency magnitude → live plot
-```
-
 Audio is captured in chunks of 1024 samples at 44100 Hz. Each chunk is windowed and passed through an FFT, producing 513 frequency bins from 0 Hz to 22050 Hz. The plot displays bins up to 5000 Hz and updates at roughly 30 fps.
 
 The audio callback and plot rendering run on separate threads — the callback only writes FFT data to a shared buffer, while the main thread handles all plot updates. This prevents Tkinter threading conflicts.
@@ -88,6 +91,6 @@ At the top of `spectrum_analyzer.py` you can adjust:
 
 ## Author
 
-**Nathan Tennakoon** — 3rd Year Electrical and Computer Engineering student at UC San Diego, specializing in Circuits and Systems.
+**Nathan Ten** — 3rd Year Electrical and Computer Engineering student at UC San Diego, specializing in Circuits and Systems.
 
 [GitHub](https://github.com/nathantenn)
